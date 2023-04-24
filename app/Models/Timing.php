@@ -13,6 +13,6 @@ class Timing extends Model
     ];
     public function result()
     {
-        return $this->belongsTo(Result::class);
+        return $this->hasMany(Result::class);
     }
 }

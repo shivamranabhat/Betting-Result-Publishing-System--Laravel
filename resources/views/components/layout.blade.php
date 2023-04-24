@@ -38,23 +38,22 @@
 					<span class="text">Users</span>
 				</a>
 			</li>
-			{{-- <li class="{{(request()->segment(2)=='games')?'active':''}}"> --}}
-            <li>
-				<a href="#">
+			<li class="{{(request()->segment(2)=='games')?'active':''}}">
+				<a href="{{route('games')}}">
 					<i class='bx bxs-game' ></i>
 					<span class="text">Games</span>
 				</a>
 			</li>
-			<li class="#">
-				<a href="#">
-					<i class='bx bxs-group' ></i>
-					<span class="text">Teams</span>
+			<li class="{{(request()->segment(2)=='time')?'active':''}}">
+				<a href="{{route('timing')}}">
+					<i class='bx bxs-time' ></i>
+					<span class="text">Time</span>
 				</a>
 			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-image-add'></i>
-					<span class="text">Avatars</span>
+			<li class="{{(request()->segment(2)=='result')?'active':''}}">
+				<a href="{{route('results')}}">
+					<i class='bx bxs-report'></i>
+					<span class="text">Results</span>
 				</a>
 			</li>
             <li>
@@ -110,44 +109,13 @@
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
-    <script>
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#imageResult')
-                        .attr('src', e.target.result);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $(function () {
-            $('#upload').on('change', function () {
-                readURL(input);
-            });
-        });
-
-        /*  ==========================================
-            SHOW UPLOADED IMAGE NAME
-        * ========================================== */
-        var input = document.getElementById( 'upload' );
-        var infoArea = document.getElementById( 'upload-label' );
-
-        input.addEventListener( 'change', showFileName );
-        function showFileName( event ) {
-          var input = event.srcElement;
-          var fileName = input.files[0].name;
-          infoArea.textContent = 'File name: ' + fileName;
-        }
-   </script>
    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<script src="http://127.0.0.1:8000/js/admin.js"></script>
     <script src="http://127.0.0.1:8000/js/jquery-3.5.1.min.js"></script>
+    {{-- script to hide flash message --}}
     <script>
         $(document).ready(function() {
         var flash= $('#flash');
@@ -158,5 +126,25 @@
         }, 2000);
         });
     </script>
+    {{-- script to display selected image --}}
+    <script>
+        $(document).ready(function() {
+            $('#image').change(function() {
+                var input = this;
+                var url = $(this).val();
+                var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+                if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#imageResult').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                } else {
+                    $('#imageResult').attr('src', 'http://127.0.0.1:8000/images/preview.png');
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>

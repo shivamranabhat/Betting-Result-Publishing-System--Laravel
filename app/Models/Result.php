@@ -13,10 +13,10 @@ class Result extends Model
     ];
     public function game()
     {
-        return $this->hasMany(Game::class);
+        return $this->belongsTo(Game::class);
     }
-    public function timing()
+    public function time()
     {
-        return $this->hasMany(Timing::class);
+        return $this->belongsTo(Timing::class);
     }
 }
