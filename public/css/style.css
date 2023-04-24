@@ -363,6 +363,17 @@ p{
     color: #fff;
 }
 /* why choose us design */
+/* privacy design */
+.privacy-contents p,.terms-contents p{
+    color: var(--textcolor);
+}
+.privacy-contents h3,.terms-contents h3{
+    color: #fff;
+}
+.privacy,.terms{
+    padding-bottom: 70px;
+}
+/* privacy design */
 /* how it works design */
 .works{
     background: url(../images/banner.png) center;
@@ -384,14 +395,21 @@ p{
 .works-content{
     margin-top: 30px;
 }
+.bg-image h1{
+    margin-bottom: 30px;
+}
 .works-content h1{
     color:#fff;
     font-weight: bold;
-    margin-bottom: 30px;
 }
-
+.works-content p{
+    color: var(--textcolor);
+}
 /* how it works design */
 /* footer design */
+.footer{
+    background: #343045;
+}
 .footer .row .footer-head{
     color: #fff;
     text-transform: uppercase;

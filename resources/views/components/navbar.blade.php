@@ -3,7 +3,7 @@
     <div class="sticky-nav">
       <div class="navbar align-items-center py-4 w-100">
         <div class="logo">
-          <h5 class="mt-2">BetX</h5>
+          <a href="/"><img src="http://127.0.0.1:8000/images/logo.png" alt=""></a>
         </div>
         <div class="navigation-bar ">
           <div class="link  py-2 mt-2 mr-1">
@@ -31,7 +31,7 @@
               <button class="text-white mr-5">CONTACT US</button>
             </div>
             <div class="join-btn mt-1 rounded">
-              <button>JOIN BETX</button>
+              <button class="text-uppercase">Sign In</button>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@
     <div class="sidebar box-shadow text-center">
       <div class="top-header mt-5">
         <div class="logo">
-          <h5 class="mt-2">BetX</h5>
+            <a href="/"><img src="http://127.0.0.1:8000/images/logo.png" alt=""></a>
         </div>
       </div>
       <div class="side-nav">

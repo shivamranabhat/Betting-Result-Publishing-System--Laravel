@@ -1,19 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Timing;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
-class TimeController extends Controller
+use Illuminate\Http\Request;
+use App\Models\Terms;
+
+class TermsController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $timing = Timing::orderBy('created_at','desc')->simplePaginate(5);
-        return view('admin.timings.index',compact('timing'));
+        $terms = Terms::orderBy('created_at','desc')->simplePaginate(5);
+        return view('admin.terms.index',compact('terms'));
     }
 
     /**
@@ -21,7 +21,7 @@ class TimeController extends Controller
      */
     public function create()
     {
-        return view('admin.timings.create');
+        return view('admin.terms.create');
     }
 
     /**
@@ -30,10 +30,11 @@ class TimeController extends Controller
     public function store(Request $request)
     {
         $formFields = $request->validate([
-            'time'=>'required'
+            'title'=>'required',
+            'description'=>'required',
         ]);
-        Timing::create($formFields);
-        return redirect()->route('timing')->with('message','Time added successfully');
+        Terms::create($formFields);
+        return redirect()->route('terms')->with('message','Terms & Conditions added successfully');
     }
 
     /**
@@ -49,8 +50,8 @@ class TimeController extends Controller
      */
     public function edit(string $id)
     {
-        $time = Timing::findOrFail($id);
-        return view('admin.timings.edit',compact('time'));
+        $terms= Terms::findOrFail($id);
+        return view('admin.terms.edit',compact('terms'));
     }
 
     /**
@@ -58,12 +59,13 @@ class TimeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $time = Timing::findOrFail($id);
+        $terms= Terms::findOrFail($id);
         $formFields = $request->validate([
-            'time'=>'required'
+            'title'=>'required',
+            'description'=>'required',
         ]);
-        $time->update($formFields);
-        return redirect()->route('timing')->with('message','Time updated successfully');
+        $terms->update($formFields);
+        return redirect()->route('terms')->with('message','Terms & Conditions updated successfully');
     }
 
     /**
@@ -71,8 +73,8 @@ class TimeController extends Controller
      */
     public function destroy(string $id)
     {
-        $time = Timing::findOrFail($id);
-        $time->delete();
-        return redirect()->route('timing')->with('message','Time deleted succesfully');
+        $terms= Terms::findOrFail($id);
+        $terms->delete();
+        return redirect()->route('terms')->with('message','Terms & Conditions updated successfully');
     }
 }

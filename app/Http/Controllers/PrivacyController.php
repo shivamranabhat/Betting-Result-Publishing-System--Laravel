@@ -1,19 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Timing;
+
 use Illuminate\Http\Request;
+use App\Models\Privacy;
 use Illuminate\Validation\Rule;
 
-class TimeController extends Controller
+class PrivacyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $timing = Timing::orderBy('created_at','desc')->simplePaginate(5);
-        return view('admin.timings.index',compact('timing'));
+        $privacies = Privacy::orderBy('created_at','desc')->simplePaginate(5);
+        return view('admin.privacy.index',compact('privacies'));
     }
 
     /**
@@ -21,7 +22,7 @@ class TimeController extends Controller
      */
     public function create()
     {
-        return view('admin.timings.create');
+        return view('admin.privacy.create');
     }
 
     /**
@@ -30,10 +31,11 @@ class TimeController extends Controller
     public function store(Request $request)
     {
         $formFields = $request->validate([
-            'time'=>'required'
+            'title'=>'required',
+            'description'=>'required',
         ]);
-        Timing::create($formFields);
-        return redirect()->route('timing')->with('message','Time added successfully');
+        Privacy::create($formFields);
+        return redirect()->route('privacy')->with('message','Privacy Policy added successfully');
     }
 
     /**
@@ -49,8 +51,8 @@ class TimeController extends Controller
      */
     public function edit(string $id)
     {
-        $time = Timing::findOrFail($id);
-        return view('admin.timings.edit',compact('time'));
+        $privacy= Privacy::findOrFail($id);
+        return view('admin.privacy.edit',compact('privacy'));
     }
 
     /**
@@ -58,12 +60,13 @@ class TimeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $time = Timing::findOrFail($id);
+        $privacy= Privacy::findOrFail($id);
         $formFields = $request->validate([
-            'time'=>'required'
+            'title'=>'required',
+            'description'=>'required',
         ]);
-        $time->update($formFields);
-        return redirect()->route('timing')->with('message','Time updated successfully');
+        $privacy->update($formFields);
+        return redirect()->route('privacy')->with('message','Privacy Policy updated successfully');
     }
 
     /**
@@ -71,8 +74,9 @@ class TimeController extends Controller
      */
     public function destroy(string $id)
     {
-        $time = Timing::findOrFail($id);
-        $time->delete();
-        return redirect()->route('timing')->with('message','Time deleted succesfully');
+        $privacy= Privacy::findOrFail($id);
+        $privacy->delete();
+        return redirect()->route('privacy')->with('message','Privacy Policy updated successfully');
     }
+
 }

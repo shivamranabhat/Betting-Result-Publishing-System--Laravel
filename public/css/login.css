@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+:root {
+	--background: #302C42;
+    --textcolor:#cbc5e7;
+}
+#log-form{
+    top:15%;
+}
+.forms{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+    background:transparent;
+}
+.login-container{
+    background: linear-gradient(rgb(48,44,66),rgba(48,44,66,0.8)),url(../images/banner.png) center fixed no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+#log-form .form{
+    max-width: 430px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 6px;
+    background: #FFF;
+}
+header{
+    font-size: 28px;
+    font-weight: 600;
+    color: #232836;
+    text-align: center;
+}
+.forms form{
+    margin-top: 30px;
+}
+.form .field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 6px;
+}
+.field input,
+.field button{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+}
+.field input{
+    outline: none;
+    padding: 0 15px;
+    border: 1px solid#CACACA;
+}
+.field input:focus{
+    border-bottom-width: 2px;
+}
+.eye-icon{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #8b8b8b;
+    cursor: pointer;
+    padding: 5px;
+}
+.field button{
+    color: #fff;
+    border-radius: 25px;
+    background-color: var(--background);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.right-btn i{
+    font-size: 22px;
+}
+.field button:hover{
+    background: #48406b;
+}
+.form-link{
+    text-align: center;
+    margin-top: 10px;
+}
+.form-link span,
+.form-link a{
+    font-size: 14px;
+    font-weight: 400;
+    color: #232836;
+}
+.form a{
+    text-decoration: none;
+}
+.form-content a:hover{
+    text-decoration: underline;
+}
+.form-link a{
+    color:#016dcb;
+}
+.line{
+    position: relative;
+    height: 1px;
+    width: 100%;
+    margin: 36px 0;
+    background-color: #d4d4d4;
+}
+.line::before{
+    content: 'Follow Us On';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFF;
+    color: #8b8b8b;
+    padding: 0 15px;
+}
+form  a{
+    color: none !important;
+}
+.media-options a i{
+    font-size: 30px;
+}
+.media-options a .fa-twitter-square{
+    color:#1DA1F2;
+}
+.media-options a .fa-instagram{
+    background: #d6249f;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+@media (max-width:480px) {
+    .fixed-bg {
+	    background-attachment: initial !important;
+	}
+}
+@media screen and (max-width: 400px) {
+    .form{
+        padding: 20px 10px;
+    }
+
+}
+

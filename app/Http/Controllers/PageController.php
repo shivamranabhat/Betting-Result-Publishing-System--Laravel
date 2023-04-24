@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Result;
 use App\Models\Game;
 use App\Models\Timing;
+use App\Models\Privacy;
+use App\Models\Terms;
 
 class PageController extends Controller
 {
@@ -14,7 +16,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $results = Result::orderBy('rank','asc')->simplePaginate(5);
+        return view('admin.index',compact('results'));
     }
     public function home()
     {
@@ -32,5 +35,42 @@ class PageController extends Controller
     {
         return view('about');
     }
+    public function privacy()
+    {
+        $privacy = Privacy::all();
+        return view('privacy',compact('privacy'));
+    }
+    public function terms()
+    {
+        $terms = Terms::all();
+        return view('terms',compact('terms'));
+    }
+    public function login()
+    {
+        return view('login');
+    }
+     //Authenticate user
+     public function authenticate(Request $request)
+     {
+         $formFields = $request->validate([
+             'email'=>['required','email'],
+             'password'=>'required'
+         ]);
+         if(auth()->attempt($formFields))
+         {
+            $request->session()->regenerate();
+            return redirect('/admin')->with('message','Login successfully');
+         }
+         return back()->withErrors(['email'=>'Invalid credentials'])->onlyInput('email');
+
+     }
+     //Logout user
+     public function logout(Request $request)
+     {
+         auth()->logout();
+         $request->session()->invalidate();
+         $request->session()->regenerateToken();
+         return redirect('/login')->with('message','Logged out successfully!');
+     }
 
 }

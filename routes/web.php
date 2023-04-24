@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\ResultController;
+use App\Http\Controllers\TermsController;
 use App\Http\Controllers\TimeController;
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +23,16 @@ use App\Http\Controllers\TimeController;
 Route::get('/',[PageController::class,'home'])->name('home');
 Route::get('/games',[PageController::class,'games'])->name('our_games');
 Route::get('/about',[PageController::class,'about'])->name('about');
+Route::get('/privacy policy',[PageController::class,'privacy'])->name('privacy_policy');
+Route::get('/terms & conditions',[PageController::class,'terms'])->name('user_terms');
+Route::get('/login',[PageController::class,'login'])->name('login');
+//login user
+Route::post('/users/authenticate',[PageController::class,'authenticate'])->name('auth');
+//logout user
+Route::post('/logout',[PageController::class,'logout']);
 
 //Admin Routes
-Route::prefix('/admin')->group(function(){
+Route::prefix('/admin')->middleware('auth')->group(function(){
     Route::get('/',[PageController::class,'index'])->name('index');
      //Routes for Games
      Route::prefix('/games')->group(function(){
@@ -69,5 +78,35 @@ Route::prefix('/admin')->group(function(){
         Route::put('/update/{id}',[ResultController::class,'update'])->name('update-result');
         //Delete result
         Route::delete('/delete/{id}',[ResultController::class,'destroy'])->name('delete-result');
+    });
+     //Routes for privacy
+     Route::prefix('/privacy')->group(function(){
+        //Display privacy
+        Route::get('/',[PrivacyController::class,'index'])->name('privacy');
+        //Add privacy
+        Route::get('/create',[PrivacyController::class,'create'])->name('add-privacy');
+        //Store privacy
+        Route::post('/store',[PrivacyController::class,'store'])->name('store-privacy');
+        //Edit privacy
+        Route::get('/{id}',[PrivacyController::class,'edit'])->name('edit-privacy');
+        //Update privacy
+        Route::put('/update/{id}',[PrivacyController::class,'update'])->name('update-privacy');
+        //Delete privacy
+        Route::delete('/delete/{id}',[PrivacyController::class,'destroy'])->name('delete-privacy');
+    });
+     //Routes for terms
+     Route::prefix('/terms')->group(function(){
+        //Display terms
+        Route::get('/',[TermsController::class,'index'])->name('terms');
+        //Add terms
+        Route::get('/create',[TermsController::class,'create'])->name('add-terms');
+        //Store terms
+        Route::post('/store',[TermsController::class,'store'])->name('store-terms');
+        //Edit terms
+        Route::get('/{id}',[TermsController::class,'edit'])->name('edit-terms');
+        //Update terms
+        Route::put('/update/{id}',[TermsController::class,'update'])->name('update-terms');
+        //Delete terms
+        Route::delete('/delete/{id}',[TermsController::class,'destroy'])->name('delete-terms');
     });
 });

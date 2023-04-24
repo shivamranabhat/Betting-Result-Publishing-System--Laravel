@@ -3,7 +3,7 @@
     <div class="footer p-5">
       <div class="row d-flex justify-content-center">
         <div class="col-12 col-sm-6 col-lg-3 margin line" id="brand">
-          <h5 class="text-white mt-3">BETX</h5>
+            <a href="/"><img src="http://127.0.0.1:8000/images/logo.png" alt="logo"></a>
         </div>
         <div class="col-12 col-sm-6 col-lg-3 margin line" id="menus">
           <p class="footer-head">Quick Links</p>
@@ -25,10 +25,10 @@
         <div class="col-12 col-sm-6 col-lg-3 line" id="links">
           <p class="footer-head">Important Links</p>
           <div class="links">
-            <a href="#" class="d-block">
+            <a href="{{route('privacy_policy')}}" class="d-block {{(request()->segment(1)=='privacy policy')?'active':''}}">
               Privacy Policy
             </a>
-            <a href="#" class="d-block">
+            <a href="{{route('user_terms')}}" class="d-block {{(request()->segment(1)=='terms & conditions')?'active':''}}">
               Terms & Conditions
             </a>
             <a href="#" class="d-block">

@@ -9,10 +9,9 @@
           <div class="left-content">
             <h1><span class="span-text">Dive</span> Into The Depths</h1>
             <h1>of <span class="span-text">Betting</span> <span class="span-end">Games</span></h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus eaque veritatis asperiores mollitia
-              voluptatibus rem inventore commodi doloribus laboriosam sapiente?</p>
+            <p>Unleash the winner in you - join the BetX community today and take your betting game to the next level. Join now and win big!</p>
             <div class="join-btn">
-              <button>JOIN US NOW</button>
+              <button class="text-uppercase">Join Us Now</button>
               <img src="images/arrow-small-right.png" alt="arrow">
             </div>
           </div>
@@ -21,10 +20,9 @@
           <img src="images/index-bg.png" class="w-100" alt="side-image">
         </div>
         <div class="mobile-content mb-4">
-          <p class="px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus eaque veritatis asperiores mollitia
-            voluptatibus rem inventore commodi doloribus laboriosam sapiente?</p>
+          <p class="px-2">Unleash the winner in you - join the BetX community today and take your betting game to the next level. Join now and win big!</p>
           <div class="join-btn">
-            <button>JOIN US NOW</button>
+            <button class="text-uppercase">Join Us Now</button>
             <img src="images/arrow-small-right.png" alt="arrow">
           </div>
         </div>
