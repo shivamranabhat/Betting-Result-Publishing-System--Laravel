@@ -17,10 +17,12 @@ use App\Http\Controllers\TimeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/',[PageController::class,'home']);
+Route::get('/',[PageController::class,'home'])->name('home');
+Route::get('/games',[PageController::class,'games'])->name('our_games');
+Route::get('/about',[PageController::class,'about'])->name('about');
 
+//Admin Routes
 Route::prefix('/admin')->group(function(){
     Route::get('/',[PageController::class,'index'])->name('index');
      //Routes for Games
