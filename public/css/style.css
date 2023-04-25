@@ -253,11 +253,10 @@ p{
     border: none !important;
 }
 .result-content .number{
-    background: #8176AF;
-    border-radius: 5px;
+    border-right: 2px solid #8176AF;
     top: -25%;
     left: -3.5%;
-    color: #000000;
+    color: #ffffff;
     padding: 0.8rem 1.6rem;
   }
   .result-content .number h5{
@@ -265,6 +264,7 @@ p{
   }
   .result-content .content{
     background: #2a263a;
+    border: 2px solid #8176AF !important;
   }
 /* result design */
 /* our games design */

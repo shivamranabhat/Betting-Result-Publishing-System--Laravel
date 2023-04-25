@@ -57,11 +57,11 @@
                     <div class="tab-content">
                         <div id="all" class="tab-pane fade show active">
                             @foreach ($results as $result)
-                                <div class="result-content position-relative rounded mb-5">
-                                    <div class="number d-flex align-items-center position-absolute">
-                                        <h5>{{ $result->rank }}</h5>
-                                    </div>
-                                    <div class="content d-flex pl-4 py-3">
+                                <div class="result-content mb-5">
+                                    <div class="content d-flex mb-5 rounded">
+                                        <div class="number d-flex align-items-center">
+                                            <h5>{{ $result->rank }}</h5>
+                                          </div>
                                         <div class="image mx-3">
                                             <img src="{{ asset('storage/' . $result->game->image) }}" alt="game"
                                                 width="70" height="70" class="rounded">
@@ -92,11 +92,11 @@
                                     </div>
                                 @else
                                     @foreach ($timewiseResult as $result)
-                                        <div class="result-content position-relative rounded mb-5">
-                                            <div class="number d-flex align-items-center position-absolute">
-                                                <h5>{{ $result->rank }}</h5>
-                                            </div>
-                                            <div class="content d-flex pl-4 py-3">
+                                        <div class="result-content">
+                                            <div class="content d-flex mb-5 rounded">
+                                                <div class="number d-flex align-items-center">
+                                                    <h5>{{ $result->rank }}</h5>
+                                                  </div>
                                                 <div class="image mx-3">
                                                     <img src="{{ asset('storage/' . $result->game->image) }}" alt="game"
                                                         width="70" height="70" class="rounded">
