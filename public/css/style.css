@@ -252,16 +252,20 @@ p{
     background: #8176AF !important;
     border: none !important;
 }
-.table td, .table th{
-    border: 0 !important;
-}
-.table-responsive{
-    border: 2px solid #8176AF;
-    border-radius: 15px;
-}
-.table thead th{
-    vertical-align: top !important;
-}
+.result-content .number{
+    background: #8176AF;
+    border-radius: 5px;
+    top: -25%;
+    left: -3.5%;
+    color: #000000;
+    padding: 0.8rem 1.6rem;
+  }
+  .result-content .number h5{
+    font-weight: bold;
+  }
+  .result-content .content{
+    background: #2a263a;
+  }
 /* result design */
 /* our games design */
 .heading h1{
