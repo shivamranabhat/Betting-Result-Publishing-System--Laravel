@@ -59,7 +59,7 @@ class PageController extends Controller
          if(auth()->attempt($formFields))
          {
             $request->session()->regenerate();
-            return redirect('/admin')->with('message','Login successfully');
+            return redirect('/admin/home');
          }
          return back()->withErrors(['email'=>'Invalid credentials'])->onlyInput('email');
 

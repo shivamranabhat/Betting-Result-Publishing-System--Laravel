@@ -33,7 +33,7 @@ Route::post('/logout',[PageController::class,'logout']);
 
 //Admin Routes
 Route::prefix('/admin')->middleware('auth')->group(function(){
-    Route::get('/',[PageController::class,'index'])->name('index');
+    Route::get('/home',[PageController::class,'index'])->name('index');
      //Routes for Games
      Route::prefix('/games')->group(function(){
         //Display Games

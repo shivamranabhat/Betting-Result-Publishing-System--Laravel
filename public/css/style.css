@@ -508,6 +508,10 @@ p{
 }
 @media (max-width:989px)
 {
+    .body .row{
+        padding-left: 1rem !important;
+        padding-right: 0 !important;
+    }
     .footer .row .margin{
         margin-bottom: 10px;
     }
@@ -523,10 +527,7 @@ p{
     .body{
         padding: 1rem !important;
     }
-    .body .row{
-        padding-left: 1rem !important;
-        padding-right: 0 !important;
-    }
+
     .winner-body .tab-content{
         padding: 50px 10px 0 10px;
     }

@@ -28,10 +28,10 @@
           </div>
           <div class="end-info d-flex justify-content-around align-items-center">
             <div class="contact-btn mt-1 rounded">
-              <button class="text-white mr-5">CONTACT US</button>
+              <a href="#"><button class="text-white mr-5">CONTACT US</button></a>
             </div>
             <div class="join-btn mt-1 rounded">
-              <button class="text-uppercase">Sign In</button>
+              <a href="{{route('login')}}"><button class="text-uppercase">Sign In</button></a>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@
           </div>
           <div class="link px-4 py-2 mt-4">
             <h6>
-              <a href="#" class="text-uppercase join">JOIN BETX</a>
+              <a href="{{route('login')}}" class="text-uppercase join">Sign In</a>
             </h6>
           </div>
         </div>

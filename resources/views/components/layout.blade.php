@@ -20,7 +20,7 @@
 			<span class="text logo"><img src="http://127.0.0.1:8000/images/admin-logo.png" alt=""></span>
 		</a>
 		<ul class="side-menu top">
-			<li class="{{(request()->segment(2)=='admin') ? 'active' : ''}}">
+			<li class="{{(request()->segment(2)=='home') ? 'active' : ''}}">
 				<a href="{{route('index')}}">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
